@@ -7,7 +7,7 @@ export type RuntimesResponse =
       type: "success";
       languages: {
         language: string;
-        version?: string;
+        version: string;
         aliases: string[];
         runtime?: string;
       }[];
@@ -19,7 +19,7 @@ export type RuntimesResponse =
 
 export type ExecuteRequest = {
   language: string;
-  version: string;
+  version?: string;
   files: {
     name?: string;
     content: string;
