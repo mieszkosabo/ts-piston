@@ -6,7 +6,9 @@
   "author": "Mieszko Sabo",
   "license": "MIT",
   "scripts": {
-    "build": "preconstruct build"
+    "build": "preconstruct build",
+    "test": "vitest run",
+    "test:watch": "vitest"
   },
   "devDependencies": {
     "@babel/preset-env": "^7.21.4",
