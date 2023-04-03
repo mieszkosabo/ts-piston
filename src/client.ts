@@ -20,10 +20,16 @@ export const createPistonClient = (config: createClientConfig = {}) => {
   };
 
   const execute = async (request: ExecuteRequest): Promise<ExecuteResponse> => {
+    const normalizedRequest = {
+      ...request,
+      version: request.version || "*",
+    };
+
     const response = await fetch(executeUrl, {
       method: "POST",
-      body: JSON.stringify(request),
+      body: JSON.stringify(normalizedRequest),
     });
+
     return response.json();
   };
 
