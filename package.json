@@ -1,0 +1,17 @@
+{
+  "name": "ts-piston",
+  "version": "1.0.0",
+  "main": "dist/ts-piston.cjs.js",
+  "module": "dist/ts-piston.esm.js",
+  "author": "Mieszko Sabo",
+  "license": "MIT",
+  "scripts": {
+    "build": "preconstruct build"
+  },
+  "devDependencies": {
+    "@babel/preset-env": "^7.21.4",
+    "@babel/preset-typescript": "^7.21.4",
+    "@preconstruct/cli": "^2.4.3",
+    "typescript": "^5.0.3"
+  }
+}
