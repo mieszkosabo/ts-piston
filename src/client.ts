@@ -1,4 +1,4 @@
-import { ExecuteRequest, ExecuteResponse } from "./types";
+import { ExecuteRequest, ExecuteResponse, RuntimesResponse } from "./types";
 import { Language } from "./types.generated";
 
 type createClientConfig = {
@@ -15,9 +15,19 @@ export const createPistonClient = (config: createClientConfig = {}) => {
   const runtimesUrl = `${normalizedBaseUrl}/runtimes`;
   const executeUrl = `${normalizedBaseUrl}/execute`;
 
-  const runtimes = async () => {
+  const runtimes = async (): Promise<RuntimesResponse> => {
     const response = await fetch(runtimesUrl);
-    return response.json();
+    if (response.ok) {
+      return {
+        languages: await response.json(),
+        type: "success",
+      };
+    }
+
+    return {
+      type: "error",
+      message: (await response.json()).message,
+    };
   };
 
   const execute = async <Lang extends Language["language"]>(
@@ -33,7 +43,17 @@ export const createPistonClient = (config: createClientConfig = {}) => {
       body: JSON.stringify(normalizedRequest),
     });
 
-    return response.json();
+    if (response.ok) {
+      return {
+        type: "success",
+        ...(await response.json()),
+      };
+    }
+
+    return {
+      type: "error",
+      message: (await response.json()).message,
+    };
   };
 
   return {

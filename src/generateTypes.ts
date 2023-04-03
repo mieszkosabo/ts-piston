@@ -18,8 +18,8 @@ export const generateTypes = (
 
   const langType = langEnum.map((language) => {
     const { name, version } = language;
-    return `{ language: "${name}", version: "${version}" | "*" }`;
+    return `{ language: "${name}"; version: "${version}" | "*" }`;
   });
 
-  return `export type Language = ${langType.join(" | ")};\n`;
+  return `export type Language =\n\t| ${langType.join("\n\t| ")};\n`;
 };
