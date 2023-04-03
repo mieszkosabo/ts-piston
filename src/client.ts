@@ -1,4 +1,5 @@
 import { ExecuteRequest, ExecuteResponse } from "./types";
+import { Language } from "./types.generated";
 
 type createClientConfig = {
   baseUrl?: string;
@@ -19,7 +20,9 @@ export const createPistonClient = (config: createClientConfig = {}) => {
     return response.json();
   };
 
-  const execute = async (request: ExecuteRequest): Promise<ExecuteResponse> => {
+  const execute = async <Lang extends Language["language"]>(
+    request: ExecuteRequest<Lang>
+  ): Promise<ExecuteResponse> => {
     const normalizedRequest = {
       ...request,
       version: request.version || "*",

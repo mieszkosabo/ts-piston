@@ -1,6 +1,11 @@
-/**
- * This file will be replace by the postinstall script
- */
+import type { Language } from "./types.generated";
+
+type FindCorrespondingVersion<T extends Language["language"]> = Extract<
+  Language,
+  { language: T }
+>["version"] extends undefined
+  ? "*"
+  : Extract<Language, { language: T }>["version"];
 
 export type RuntimesResponse =
   | {
@@ -17,9 +22,9 @@ export type RuntimesResponse =
       message: string;
     };
 
-export type ExecuteRequest = {
-  language: string;
-  version?: string;
+export type ExecuteRequest<Lang extends Language["language"]> = {
+  language: Lang;
+  version?: FindCorrespondingVersion<Lang>;
   files: {
     name?: string;
     content: string;

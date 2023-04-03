@@ -42,7 +42,7 @@ describe("Piston client sends correct requests", () => {
 
   test("execute ok", async () => {
     const client = createPistonClient();
-    const execute = await client.execute(executeCorrectPayload);
+    const execute = await client.execute(executeCorrectPayload as any);
 
     expect(execute).toEqual(executeOkMock);
   });
@@ -50,8 +50,8 @@ describe("Piston client sends correct requests", () => {
   test("execute bad", async () => {
     const client = createPistonClient();
     const execute = await client.execute({
-      language: UNKNOWN_LANGUAGE,
-      version: "15.10.0",
+      language: UNKNOWN_LANGUAGE as any,
+      version: "*",
       files: [
         {
           name: "my_cool_code.js",
@@ -73,14 +73,14 @@ describe("Piston client sends correct requests", () => {
 
   test("works with private API", async () => {
     const client = createPistonClient({ baseUrl: PRIVATE_API_BASE_URL });
-    const execute = await client.execute(executeCorrectPayload);
+    const execute = await client.execute(executeCorrectPayload as any);
 
     expect(execute).toEqual(executeOkMock);
   });
 
   test("works with private API that end with a slash (/)", async () => {
     const client = createPistonClient({ baseUrl: `${PRIVATE_API_BASE_URL}/` });
-    const execute = await client.execute(executeCorrectPayload);
+    const execute = await client.execute(executeCorrectPayload as any);
 
     expect(execute).toEqual(executeOkMock);
   });
