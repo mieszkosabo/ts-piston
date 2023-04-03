@@ -37,14 +37,14 @@ describe("Piston client sends correct requests", () => {
   test("runtimes public api", async () => {
     const client = createPistonClient();
     const runtimes = await client.runtimes();
-    expect(runtimes).toEqual(runtimesMock);
+    expect(runtimes).toEqual({ type: "success", languages: runtimesMock });
   });
 
   test("execute ok", async () => {
     const client = createPistonClient();
     const execute = await client.execute(executeCorrectPayload as any);
 
-    expect(execute).toEqual(executeOkMock);
+    expect(execute).toEqual({ type: "success", ...executeOkMock });
   });
 
   test("execute bad", async () => {
@@ -67,6 +67,7 @@ describe("Piston client sends correct requests", () => {
     });
 
     expect(execute).toEqual({
+      type: "error",
       message: `${UNKNOWN_LANGUAGE} runtime is unknown`,
     });
   });
@@ -75,13 +76,13 @@ describe("Piston client sends correct requests", () => {
     const client = createPistonClient({ baseUrl: PRIVATE_API_BASE_URL });
     const execute = await client.execute(executeCorrectPayload as any);
 
-    expect(execute).toEqual(executeOkMock);
+    expect(execute).toEqual({ type: "success", ...executeOkMock });
   });
 
   test("works with private API that end with a slash (/)", async () => {
     const client = createPistonClient({ baseUrl: `${PRIVATE_API_BASE_URL}/` });
     const execute = await client.execute(executeCorrectPayload as any);
 
-    expect(execute).toEqual(executeOkMock);
+    expect(execute).toEqual({ type: "success", ...executeOkMock });
   });
 });
