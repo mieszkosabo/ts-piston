@@ -5,12 +5,18 @@
   "module": "dist/ts-piston.esm.js",
   "author": "Mieszko Sabo",
   "license": "MIT",
-  "scripts": {
-    "build": "preconstruct build",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "postinstall": "node -r @swc-node/register scripts/generate.ts"
+  "bin": {
+    "generate-types": "bin/index.js"
   },
+  "scripts": {
+    "build": "preconstruct build && tsc src/generateTypes.ts --outDir dist",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "files": [
+    "dist",
+    "bin"
+  ],
   "devDependencies": {
     "@babel/preset-env": "^7.21.4",
     "@babel/preset-typescript": "^7.21.4",

@@ -1,4 +1,4 @@
-import type { Language } from "./types.generated";
+import type { Language } from "./language.type";
 
 type FindCorrespondingVersion<T extends Language["language"]> = Extract<
   Language,

@@ -1,4 +1,4 @@
-import { RuntimesResponse } from "../dist/declarations/src/types";
+import type { RuntimesResponse } from "./types";
 
 type Language = Extract<
   RuntimesResponse,

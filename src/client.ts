@@ -1,5 +1,5 @@
 import { ExecuteRequest, ExecuteResponse, RuntimesResponse } from "./types";
-import { Language } from "./types.generated";
+import { Language } from "./language.type";
 
 type createClientConfig = {
   baseUrl?: string;
