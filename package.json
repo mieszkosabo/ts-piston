@@ -11,7 +11,8 @@
   "scripts": {
     "build": "preconstruct build && tsc src/generateTypes.ts --outDir dist",
     "test": "vitest run",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "prepublishOnly": "yarn test && yarn build"
   },
   "files": [
     "dist",
