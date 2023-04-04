@@ -1,8 +1,14 @@
 # ts-piston
 
-API wrapper fro the Piston API.
+Typescript client for [Piston](https://github.com/engineer-man/piston), high performance general purpose code execution engine.
 
-## Usage
+## Features
+
+- Works in both Node.js and browsers
+- Offers ultimate DX by generating types directly from the API
+- Supports usage of both the public API and self-hosted instances
+
+## Installation
 
 1. Install the package:
 
@@ -17,7 +23,7 @@ yarn add ts-piston
 pnpm add ts-piston
 ```
 
-2. (optional) Generate strict types for the client:
+2. _(optional)_ Generate strict types for the client:
 
 ```bash
 npx ts-piston generate-types
@@ -28,6 +34,8 @@ the type-safety (and nice IDE autocomplete) for the `language` and `version` fie
 
 Note that if you delete the `node_modules` directory, you will have to rerun the command.
 
+Sometimes the TypeScript language server doesn't pick up the new types, so you may have to restart it. For example, in VSCode you can do this by running the `TypeScript: Restart TS Server` command.
+
 You may want to add this to your `postinstall` script:
 
 ```json
@@ -36,7 +44,7 @@ You may want to add this to your `postinstall` script:
 }
 ```
 
-3. Use the client:
+## Usage
 
 ```ts
 import { createPistonClient } from "ts-piston";
