@@ -1,13 +1,13 @@
 import { ExecuteRequest, ExecuteResponse, RuntimesResponse } from "./types";
 import { Language } from "./language.type";
 
-type createClientConfig = {
+export type CreateClientConfig = {
   baseUrl?: string;
 };
 
 const PUBLIC_API_BASE_URL = "https://emkc.org/api/v2/piston";
 
-export const createPistonClient = (config: createClientConfig = {}) => {
+export const createPistonClient = (config: CreateClientConfig = {}) => {
   const { baseUrl = PUBLIC_API_BASE_URL } = config;
   const normalizedBaseUrl =
     baseUrl.at(-1) === "/" ? baseUrl.slice(0, -1) : baseUrl;

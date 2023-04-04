@@ -1,13 +1,8 @@
-import type { RuntimesResponse } from "./types";
+import type { RuntimesResponse } from "../types";
 
-type Language = Extract<
-  RuntimesResponse,
-  { type: "success" }
->["languages"][number];
-
-export const generateTypes = (
+export const generateLanguages = (
   languages: Extract<RuntimesResponse, { type: "success" }>["languages"]
-) => {
+): string => {
   const langEnum = languages.flatMap((language) => {
     const { language: name, version, aliases } = language;
     return [name, ...aliases].map((name) => ({

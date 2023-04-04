@@ -9,7 +9,7 @@
     "generate-types": "bin/index.js"
   },
   "scripts": {
-    "build": "preconstruct build && tsc src/generateTypes.ts --outDir dist",
+    "build": "preconstruct build && tsc src/generate-types/write-types.ts --outDir dist",
     "test": "vitest run",
     "test:watch": "vitest",
     "prepublishOnly": "yarn test && yarn build"
