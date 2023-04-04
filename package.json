@@ -1,34 +1,35 @@
 {
-  "name": "ts-piston",
-  "version": "0.2.0",
-  "main": "dist/ts-piston.cjs.js",
-  "module": "dist/ts-piston.esm.js",
-  "author": "Mieszko Sabo",
-  "license": "MIT",
-  "bin": {
-    "generate-types": "bin/index.js"
-  },
-  "scripts": {
-    "build": "preconstruct build && tsc src/generate-types/write-types.ts --outDir dist",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "prepublishOnly": "yarn test && yarn build"
-  },
-  "files": [
-    "dist",
-    "bin"
-  ],
-  "devDependencies": {
-    "@babel/preset-env": "^7.21.4",
-    "@babel/preset-typescript": "^7.21.4",
-    "@preconstruct/cli": "^2.4.3",
-    "@swc-node/register": "^1.6.3",
-    "@swc/core": "^1.3.44",
-    "msw": "^1.2.1",
-    "typescript": "^5.0.3",
-    "vitest": "^0.29.8"
-  },
-  "volta": {
-    "node": "18.14.2"
-  }
+	"name": "ts-piston",
+	"version": "0.2.0",
+	"main": "dist/ts-piston.cjs.js",
+	"module": "dist/ts-piston.esm.js",
+	"author": "Mieszko Sabo",
+	"license": "MIT",
+	"bin": {
+		"generate-types": "bin/index.js"
+	},
+	"scripts": {
+		"build": "preconstruct build && tsc src/generate-types/write-types.ts --outDir dist",
+		"test": "vitest run",
+		"test:watch": "vitest",
+		"prepublishOnly": "yarn test && yarn build"
+	},
+	"files": [
+		"dist",
+		"bin"
+	],
+	"devDependencies": {
+		"@babel/preset-env": "^7.21.4",
+		"@babel/preset-typescript": "^7.21.4",
+		"@preconstruct/cli": "^2.4.3",
+		"@swc-node/register": "^1.6.3",
+		"@swc/core": "^1.3.44",
+		"msw": "^1.2.1",
+		"prettier": "2.8.7",
+		"typescript": "^5.0.3",
+		"vitest": "^0.29.8"
+	},
+	"volta": {
+		"node": "18.14.2"
+	}
 }

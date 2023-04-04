@@ -58,24 +58,20 @@ const client = createPistonClient();
 const runtimes = await client.runtimes();
 
 const response = await client.execute({
-  language: "js",
-  version: "*",
-  files: [
-    {
-      name: "my_cool_code.js",
-      content: "console.log(process.argv)",
-    },
-  ],
-  args: ["1", "2", "3"],
+	language: "js",
+	version: "*",
+	files: [
+		{
+			name: "my_cool_code.js",
+			content: "console.log(process.argv)",
+		},
+	],
+	args: ["1", "2", "3"],
 });
 
 if (response.type === "error") {
-  console.log(response.message);
+	console.log(response.message);
 } else {
-  console.log(response.run.output);
+	console.log(response.run.output);
 }
 ```
-
-TODO:
-
-- [ ] change fields to camelCase
