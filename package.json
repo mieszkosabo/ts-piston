@@ -1,6 +1,6 @@
 {
   "name": "ts-piston",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "main": "dist/ts-piston.cjs.js",
   "module": "dist/ts-piston.esm.js",
   "author": "Mieszko Sabo",
